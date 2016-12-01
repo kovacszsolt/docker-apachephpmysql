@@ -33,7 +33,7 @@ RUN mkdir /apache/source/default/
 RUN mkdir /apache/source/default/html/
 RUN chmod -r /apache/source/*
 
-COPY index.html /apache/source/default/html/index.html.default
+COPY index.html.default /apache/source/default/html/index.html
 
 #################
 # run apache2 service

@@ -1,7 +1,8 @@
 FROM debian:jessie
 RUN apt-get -y update
 # install programs
-RUN apt-get install -y mc apache2 php5 php5-cli php5-gd php5-json php5-redis php5-mysql php5-curl mysql-client
+RUN apt-get install -y apache2 php5 php5-cli php5-gd php5-json php5-redis php5-mysql php5-curl mysql-client
+RUN apt-get clean
 ###################
 # install apache2
 
@@ -35,6 +36,4 @@ RUN chmod -r /apache/source/*
 
 COPY index.html.default /apache/source/default/html/index.html
 
-#################
-# run apache2 service
-RUN /etc/init.d/apache2 start
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
